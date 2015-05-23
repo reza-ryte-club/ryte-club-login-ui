@@ -4,4 +4,3 @@ A HTML CSS based lofin page with pacman option
 =======
 # pacman-sign-up
 A login page with pacman option
->>>>>>> e37abc3706b373ca6773bd07366d05c0d224e663
