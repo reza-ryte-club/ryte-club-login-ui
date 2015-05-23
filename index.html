@@ -515,14 +515,17 @@
 	<style>
 
 	body{
-
+background: url("img/cubism.jpg") 30% 40% no-repeat;
+		background-position: center center;
+  		background-size: cover;
+  		
 		margin: 0;
 		overflow-x: hidden; 
     	overflow-y: auto;
 	}	
 
 .forget-password{
-	font-size: 1vw;
+	font-size: 1.2vw;
 	cursor: pointer;
 }
 
@@ -540,10 +543,13 @@
 		margin-top: -2vw;
 		border-radius: 4px;
 		font-size: 1.2vw;
+		transition: all .2s ease-in-out;
+  		-webkit-transition: all .2s ease-in-out;
     }
 
-.submit-button{
-
+.submit-button:hover{
+		transform: scale(1.1);
+  		-webkit-transform: scale(1.1);
 
 }
 
@@ -572,7 +578,7 @@
 	cursor: pointer;
 	font-size: 1.5vw;
 	position: absolute;
-	border-bottom: 1px solid red;
+	border-bottom: 1px solid white;
 	transition: all .2s ease-in-out;
   	-webkit-transition: all .2s ease-in-out;
 }
@@ -599,21 +605,22 @@
  
     
 
-	.main-page{
-		background-color: black;
+		.main-page{
+		background-color: rgba(0,0,0,.3);
+
 		width: 100vw;
 		height: 100vh;
 		color: white;
 		}
 		.login{
 		    font-family: "Helvetica Neue",Helvetica,"Myriad Pro","Lucida Grande",sans-serif;
-			background-color: black;
-			color: red;
+			background-color: transparent;
+			color: white;
 			width: 30vw;
-			padding-top: 3vh;
+			padding-top: 28vh;
 			padding-left: 5vw;
 			margin-left: 35vw;
-			margin-top: 25vh;
+			margin-top: 0vh;
 			height: 50vh; 
 			transition: all .2s ease-in-out;
   			-webkit-transition: all .2s ease-in-out;
@@ -635,7 +642,7 @@
 		}
 
 		#container{
-			margin-top: -90vh;
+			margin-top: -60vh;
 			margin-left: 30vw;
 		}
 
@@ -652,7 +659,7 @@
 			$(".login-information").show();
 			$(".login-title").css("border-bottom","none");
 			$(".pacman-title").css("border-bottom","none");
-			$(this).css("border-bottom","1px solid red");
+			$(this).css("border-bottom","1px solid white");
 			$(this).parent().css("height","60vh");
 			$("#confirm-password").show("slow");
 			$("#email").attr("placeholder","enter your email address");
@@ -672,7 +679,7 @@
 			$("#confirm-password").hide("slow");
 			$(".signup-title").css("border-bottom","none");
 			$(".pacman-title").css("border-bottom","none");
-			$(this).css("border-bottom","1px solid red");
+			$(this).css("border-bottom","1px solid white");
 			$(this).parent().css("height","50vh");
 			$("#email").attr("placeholder","enter login email address");
 			$("#password").attr("placeholder","enter login password");
@@ -687,11 +694,11 @@
 		$(".pacman-title").mouseup(function(){
 			$(".login-title").css("border-bottom","none");
 			$(".signup-title").css("border-bottom","none");
-			$(this).css("border-bottom","1px solid red");
+			$(this).css("border-bottom","1px solid white");
 			$("#container").show();
 			
 			$(".login-information").hide();
-			$(".login").css("background-color","black");
+			
 				if(pacman_started!=1)
 				{init();
 					pacman_started = 1;}
