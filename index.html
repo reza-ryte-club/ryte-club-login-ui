@@ -646,6 +646,7 @@ background: url("img/cubism.jpg") 30% 40% no-repeat;
 		#container{
 			margin-top: -60vh;
 			margin-left: 35vw;
+			
 		}
 
 	</style>
@@ -659,11 +660,15 @@ background: url("img/cubism.jpg") 30% 40% no-repeat;
 		$(".signup-title").mouseup(function(){
 			console.log("hello");	
 			$(".login-information").show();
+
 			$(".login-title").css("border-bottom","none");
 			$(".pacman-title").css("border-bottom","none");
 			$(this).css("border-bottom","1px solid white");
 			$(this).parent().css("height","60vh");
-			$("#confirm-password").show("slow");
+			$("#password").show("slow",function(){
+				$("#confirm-password").show("slow");	
+			});
+			
 			$("#email").attr("placeholder","enter your email address");
 			$("#password").attr("placeholder","enter a password");
 			$("#confirm-password").attr("placeholder","confirm your password");
@@ -677,7 +682,10 @@ background: url("img/cubism.jpg") 30% 40% no-repeat;
 		});
 
 		$(".login-title").mouseup(function(){
-			$(".login-information").show();
+			$(".login-information").show(function(){
+				$("#password").show("slow");
+			});
+
 			$("#confirm-password").hide("slow");
 			$(".signup-title").css("border-bottom","none");
 			$(".pacman-title").css("border-bottom","none");
@@ -685,6 +693,7 @@ background: url("img/cubism.jpg") 30% 40% no-repeat;
 			$(this).parent().css("height","50vh");
 			$("#email").attr("placeholder","enter login email address");
 			$("#password").attr("placeholder","enter login password");
+
 			$(".forget-password").show("slow");
 			$(".submit-button").text("Login");
 			$(".submit-button").css("padding-left","2vw");
@@ -706,6 +715,14 @@ background: url("img/cubism.jpg") 30% 40% no-repeat;
 					pacman_started = 1;}
 		});
 
+
+		$(".forget-password").mouseup(function(){
+			$("#email").attr("placeholder","enter login email address");
+			$("#password").hide("slow");
+			$("#confirm-password").hide("slow");
+			$(".submit-button").text("recover  ");	
+			$(".submit-button").css("padding-left","1.1vw")
+		});
 
 	});
 	</script>
