@@ -45,9 +45,7 @@
 					<div class="forget-password">
 						I forgot my password
 					</div>
-					<div class="submit-button">
-					Login
-					</div>
+					<div class="submit-button">login</div>
 				</div>
 
 
@@ -226,7 +224,7 @@ background: url("img/cubism.jpg") 30% 40% no-repeat;
 			$("#password").attr("placeholder","enter a password");
 			$("#confirm-password").attr("placeholder","confirm your password");
 			$(".forget-password").hide();
-			$(".submit-button").text("Sign up");
+			$(".submit-button").text("signup");
 			$(".submit-button").css("padding-left","1vw");
 			$(".submit-button").css("margin-left","23.8vw");
 			$("#container").hide();
@@ -248,7 +246,7 @@ background: url("img/cubism.jpg") 30% 40% no-repeat;
 			$("#password").attr("placeholder","enter login password");
 
 			$(".forget-password").show("slow");
-			$(".submit-button").text("Login");
+			$(".submit-button").text("login");
 			$(".submit-button").css("padding-left","2vw");
 			$(".submit-button").css("margin-left","23vw");
 			$("#container").hide();
@@ -260,7 +258,7 @@ background: url("img/cubism.jpg") 30% 40% no-repeat;
 			$("#email").attr("placeholder","enter login email address");
 			$("#password").hide("slow");
 			$("#confirm-password").hide("slow");
-			$(".submit-button").text("recover  ");	
+			$(".submit-button").text("recover");	
 			$(".submit-button").css("padding-left","1.1vw");
 		});
 
@@ -268,8 +266,36 @@ background: url("img/cubism.jpg") 30% 40% no-repeat;
 			$("#email").attr("placeholder","enter login email address");
 			$("#password").hide("slow");
 			$("#confirm-password").hide("slow");
-			$(".submit-button").text("recover  ");	
+			$(".submit-button").text("recover");	
 			$(".submit-button").css("padding-left","1.1vw")
+		});
+
+
+		$(".submit-button").mouseup(function(){
+			if($(this).text()=="login"){
+
+				var invitation_creation = {
+                          "email": "mrezaurrahman@live.com",
+                          "password": "28902890"
+                        }
+
+
+				       $.ajax({
+                  					type: "POST",
+                  					url: "http://localhost:3000/api/v1/sessions.json",
+                  					contentType: "application/json; charset=utf-8",
+                  					dataType: "json",
+                  					data: JSON.stringify(invitation_creation),
+                  					success: function(){ console.log("success")}
+                  					
+           			 				});
+
+			}
+
+
+			if($(this).text()=="signup")console.log("signup");
+			if($(this).text()=="recover")console.log("recover");
+			console.log("yeo man");
 		});
 
 	});
